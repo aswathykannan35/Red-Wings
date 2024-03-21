@@ -1,0 +1,52 @@
+{% extends 'patient/patientbase.html' %}
+{% block content %}
+{% load widget_tweaks %}
+{%load static%}
+
+<head>
+    <title>My Profile</title>
+    <style>
+        .profile-container {
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .update-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+    <div class="profile-container">
+        <h1>Welcome, {{user}}!</h1>
+        <img src="{% static t.profile_pic.url %}" alt="Profile Photo" class="profile-img">
+        <p>Here is your profile information:</p>
+        <ul>
+            <li>Username: {{user}}</li>
+            <li>Age: {{t.patient_age}}</li>
+            <li>Disease: {{disease}}</li>
+            <li>Doctor: {{doctarname}}</li>
+            <li>Email: [User's Email]</li>
+            <li>Mobile No.: {{mobile}}</li>
+            <li>Blood Group: {{bloodgroup}}</li>
+            <li>Location: {{address}}</li>
+            <!-- Add more profile information as needed -->
+        </ul>
+        <a href="/update-profile" class="update-button">Update Profile</a>
+    </div>
+
+
+ {% endblock content %}
